@@ -16,6 +16,7 @@ WINDOW_SIZE = 235
 DISPLAY_HEIGHT = 35
 BUTTON_SIZE = 40
 
+
 class PyCalcWindow(QMainWindow):
     """PyCalc's main window (GUI or view)."""
 
@@ -68,6 +69,7 @@ class PyCalcWindow(QMainWindow):
         """Clear the display."""
         self.setDisplayText("")
 
+
 def evaluateExpression(expression):
     """Evaluate an expression (Model)."""
     try:
@@ -75,6 +77,7 @@ def evaluateExpression(expression):
     except Exception:
         result = ERROR_MSG
     return result
+
 
 class PyCalc:
     """PyCalc's controller class."""
@@ -104,6 +107,7 @@ class PyCalc:
         self._view.display.returnPressed.connect(self._calculateResult)
         self._view.buttonMap["C"].clicked.connect(self._view.clearDisplay)
 
+
 def main():
     """PyCalc's main function."""
     pycalcApp = QApplication([])
@@ -111,6 +115,7 @@ def main():
     pycalcWindow.show()
     PyCalc(model=evaluateExpression, view=pycalcWindow)
     sys.exit(pycalcApp.exec())
+
 
 if __name__ == "__main__":
     main()
